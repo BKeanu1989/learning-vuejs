@@ -1,0 +1,56 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Toggle CSS Class</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
+</head>
+<style>
+  .box {
+    background-color: grey;
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+  }
+  .red {
+    background-color: red;
+  }
+  .blue {
+    background-color: blue;
+  }
+  .green {
+    background-color: green;
+  }
+</style>
+<body>
+  <div id="app">
+    <div class="box" :style="{backgroundColor: color}"></div>
+    <hr>
+    color:<input type="text" v-model="color">
+    <hr>
+    <div class="box" :style="myStyle"></div>
+    width:<input type="text" v-model="width">
+
+  </div>
+
+<script>
+  var app = new Vue({
+    el:'#app',
+    data: {
+      attachRed : false,
+      color: 'green',
+      width: 100
+    },
+    computed: {
+      myStyle: function() {
+        return {
+          backgroundColor: this.color,
+          width: this.width + "px"
+        };
+      }
+    }
+  })
+</script>
+</body>
+</html>
