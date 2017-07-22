@@ -1,0 +1,35 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>first vuejs app</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
+
+</head>
+<body>
+  <div id="app">
+    <p v-on:mousemove="updateCoordinates">{{x}} - {{y}} <span v-on:mousemove="dummy">DEAD</span></p>
+  </div>
+
+
+<script>
+ var app = new Vue({
+   el: '#app',
+   data: {
+     x: 0,
+     y: 0
+   },
+   methods: {
+     updateCoordinates: function(event) {
+       this.x = event.clientX;
+       this.y = event.clientY;
+     },
+     dummy: function(event) {
+       event.stopPropagation();
+     }
+   }
+ })
+</script>
+</body>
+</html>

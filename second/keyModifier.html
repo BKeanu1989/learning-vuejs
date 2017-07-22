@@ -1,0 +1,31 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>first vuejs app</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
+
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-on:keyup.space.enter="alertMe">
+  </div>
+
+
+<script>
+ var app = new Vue({
+   el: '#app',
+   data: {
+     x: 0,
+     y: 0
+   },
+   methods: {
+     alertMe: function() {
+       alert('Alert!');
+     }
+   }
+ })
+</script>
+</body>
+</html>
