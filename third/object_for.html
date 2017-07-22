@@ -1,0 +1,29 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+
+</head>
+<body>
+  <div id="app">
+    <template v-for="person in persons">
+      <p v-for="(value, key, index) in person">{{key}}: {{value}} ({{index}})</p>
+    </template>
+  </div>
+</body>
+<script>
+  var app = new Vue({
+    el:'#app',
+    data: {
+      ingredients: ['hello', 'good', 'sir'],
+      persons: [
+        {name: 'Kevin', age: 27, quote: 'ok'},
+        {name: 'Janet', age: 29, quote: 'yep'}
+      ]
+    }
+  })
+</script>
+</html>
