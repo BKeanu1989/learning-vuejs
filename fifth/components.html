@@ -1,0 +1,56 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
+
+</head>
+<body>
+
+<div id="app">
+  <p>{{title}}</p>
+</div>
+<div id="app2">
+  <p>{{title}}</p>
+  <button @click="changeTitle1" ref="buttonApp2">change title 1</button>
+  <hello></hello>
+  <hello></hello>
+</div>
+
+<div id="app3">
+
+</div>
+
+<script>
+
+  Vue.component('hello', {
+    template: '<h1>Hello!</h1>'
+  });
+
+
+  var app = new Vue({
+    data: {
+      title: 'Title app1'
+    }
+  });
+
+  var app2 = new Vue({
+    el:'#app2',
+    data: {
+      title: 'title app2'
+    },
+    methods: {
+      changeTitle1: function() {
+        app.title = 'changed via second vue instance';
+      }
+    }
+  });
+app.$mount('#app');
+
+
+
+</script>
+</body>
+</html>
